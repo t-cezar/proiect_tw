@@ -5,7 +5,6 @@ const sharp= require("sharp");
 
 app= express();
 
-
 // a= {
 //     pop:10,
 //     b:["orice",{c:100}, true, [0,12,{d:200}]]
@@ -14,7 +13,6 @@ app= express();
 // v=[10,27,23,44,15]
 // nrImpar=v.find(function(elem){return elem % 2 == 1})//pt %100 undefined -> 0
 // console.log(nrImpar)
-
 
 app.set("view engine", "ejs");
 
@@ -34,9 +32,6 @@ for (let folder of vect_foldere ){
         fs.mkdirSync(caleFolder);
     }
 }
-
-
-
 
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"resurse/json/erori.json")).toString("utf-8");
