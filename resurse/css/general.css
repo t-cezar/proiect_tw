@@ -1,0 +1,502 @@
+/* Resetare */
+:root {
+    --font-size-base: 1rem;
+    --spatiere-mica: 0.5em;
+    --spatiere-medie: 1em;
+    --spatiere-mare: 2em;
+    --culoare-text: #333;
+    --culoare-fundal: #fff;
+    --border-general: 1px solid #ccc;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: var(--culoare-text);
+    background-color: var(--culoare-fundal);
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    margin-bottom: var(--spatiere-medie);
+}
+
+p {
+    margin-bottom: var(--spatiere-medie);
+}
+
+strong,
+b {
+    font-weight: bold;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+ul,
+ol {
+    margin-left: var(--spatiere-mare);
+    padding-left: var(--spatiere-medie);
+}
+
+li {
+    margin-bottom: var(--spatiere-mica);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: var(--border-general);
+    padding: var(--spatiere-mica);
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*--------------------------------------------------------------------------------------*/
+#grid-pagina {
+    display: grid;
+    grid-template-areas:
+        "sectiune1             sectiune1           sectiune1"
+        "anunturi              oferte              imagemap_"
+        "istoric               oferte              imagemap_"
+        "istoric               program-magazine    intrebari-frecvente"
+        "sectiune_             sectiune_           sectiune_"
+        "galerie-statica       galerie-statica     galerie-statica";
+
+}
+
+#grid-pagina>* {
+    outline: 1px solid var(--culoare-inchisa);
+}
+
+#oferte {
+    grid-area: oferte;
+}
+
+#imagemap_ {
+    grid-area: imagemap_;
+}
+
+#sectiune1 {
+    grid-area: sectiune1;
+}
+
+#sectiune_ {
+    grid-area: sectiune_;
+}
+
+#galerie-statica {
+    grid-area: galerie-statica;
+}
+
+#anunturi {
+    grid-area: anunturi;
+}
+
+#program-magazine {
+    grid-area: program-magazine;
+}
+
+#intrebari-frecvente {
+    grid-area: intrebari-frecvente;
+}
+
+#istoric {
+    grid-area: istoric;
+}
+
+body {
+    --culoare-background: #FFD7B5;
+    --culoare-deschisa: #FFA646;
+    --culoare-default: rgb(210, 109, 0);
+    --culoare-inchisa: #8A6237;
+    --culoare-f_inchisa: #221C16;
+    --link-top: gray;
+
+    --spatiere-pagina: 100px;
+    --spatiere-grid: 20px;
+    --padding-text: 15px;
+    padding-left: var(--spatiere-pagina);
+    padding-right: var(--spatiere-pagina);
+}
+
+h1 {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--culoare-default)
+}
+
+#tab-program {
+    width: 100%;
+    border-collapse: collapse;
+    border: 5px inset var(--culoare-default);
+}
+
+caption {
+    caption-side: bottom;
+    font-style: italic;
+    padding: 8px;
+}
+
+th,
+td {
+    border: 1px solid var(--culoare-inchisa);
+    padding: 10px;
+    text-align: center;
+}
+
+thead th {
+    background-color: var(--culoare-default);
+
+}
+
+tbody tr:nth-child(odd) td {
+    border-bottom: 1px solid var(--culoare-inchisa);
+}
+
+tbody tr:nth-child(even) td {
+    border-bottom: 1px solid var(--culoare-default);
+}
+
+tbody tr:hover {
+    outline: 5px solid rgba(138, 98, 55, 0.7);
+    transition: outline 0.5s ease-in-out;
+}
+
+#link-top {
+    position: fixed;
+    bottom: 0.3em;
+    opacity: 0.5;
+    left: 0.3em;
+    width: 3rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    border-top: none;
+    border-bottom: none;
+    border-right: 5px solid var(--link-top);
+    border-left: 5px solid var(--link-top);
+    border-radius: 50%;
+    background: transparent;
+    filter: blur(1px);
+    transition: opacity 0.5s linear, filter 0.5s linear;
+}
+
+#link-top:hover {
+    opacity: 1;
+    filter: blur(0px);
+}
+
+#triunghi {
+    height: 0px;
+    width: 0;
+    display: inline-block;
+    border-bottom: 1.5rem solid var(--link-top);
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    vertical-align: top;
+    scale: 0.5;
+    transform: translateY(70%);
+    transition: transform 0.5s linear, filter 0.5s linear, border-bottom 0.5s linear;
+}
+
+#link-top:hover #triunghi {
+    transform: scale(1.2, 1.2);
+    filter: blur(0px);
+    border-bottom: 1.5rem solid var(--culoare-default);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#taburi-iframe {
+    text-align: center;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+#taburi-iframe a {
+    border: 3px solid var(--culoare-inchisa);
+    text-decoration: none;
+    padding: 15px 10px;
+    width: 60%;
+    background-color: var(--culoare-deschisa);
+    color: var(--culoare-inchisa);
+    border-radius: 0px 35px 5px 0px;
+    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    margin-bottom: -5px;
+}
+
+#taburi-iframe a:last-child {
+    margin-bottom: 0;
+}
+
+#taburi-iframe a:hover {
+    color: white;
+    text-shadow: 2px 2px 5px var(--culoare-f_inchisa);
+    border-left-color: var(--culoare-default);
+}
+
+/* pdf */
+#container-pdf object {
+    width: 90%;
+    min-width: 300px;
+    max-width: 800px;
+    height: 80vh;
+    display: block;
+    margin: 20px auto;
+}
+
+
+#grid-pagina {
+    display: grid;
+    gap: var(--spatiere-grid);
+}
+
+header,
+footer,
+#grid-pagina>section {
+    background-color: var(--culoare-background);
+    border: 2px solid var(--culoare-inchisa);
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px var(--culoare-f_inchisa);
+    padding: var(--padding-text);
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    min-width: 200px;
+    max-width: 800px;
+}
+
+iframe {
+    min-height: 315px;
+    height: 60vh;
+    max-height: 600px;
+}
+
+footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer iframe {
+    display: block;
+    margin: auto;
+}
+
+.styled-math {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+}
+
+.styled-math mi.variable {
+    font-weight: bold;
+    color: var(--culoare-f_inchisa);
+}
+
+.styled-math mo.operator {
+    color: red;
+    font-weight: bold;
+}
+
+.styled-math mn.number {
+    color: var(--culoare-inchisa);
+}
+
+.styled-math mn.percentage,
+.styled-math mi.percentage-symbol {
+    color: var(--culoare-default);
+    font-style: italic;
+}
+
+.styled-math mi.percentage-symbol {
+    font-weight: bold;
+}
+
+.styled-math mo.bracket {
+    color: gray;
+}
+
+.styled-math mn.result {
+    font-weight: bold;
+    color: purple;
+}
+
+.styled-math mtext.unit {
+    font-style: italic;
+    color: #000;
+}
+
+
+/* etapa 4 task VTT */
+#container-video video {
+  width: 90%;
+  transform: scale(0.7); /* video micsorat */
+  transform-origin: center;
+  display: block;
+  margin: 20px auto;
+  min-width: 300px;
+  max-width: 800px;
+}
+
+video::cue {
+  background-color: white;
+  color: var(--culoare-f_inchisa);
+  text-align: center;
+  position: relative;
+  top: -30%;
+}
+
+
+/* etapa 4 LINK */
+/* Linkuri vizitate */
+a:visited {
+    color: white;
+}
+
+/* Linkuri externe — ⮳ */
+a[href^="http"]::before {
+    content: "⮳ ";
+    font-size: 150%;
+    margin-right: 0.2em;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* Schimbare culoare simbol la hover pe link extern */
+a[href^="http"]:hover::before {
+    color: var(--culoare-default);
+}
+
+/* Efect pata pe linkuri din main */
+main a {
+    position: relative;
+    text-decoration: none;
+    color: var(--culoare-inchisa);
+    transition: background-size 0.4s ease;
+    background-image: radial-gradient(circle, var(--culoare-default) 0%, var(--culoare-deschisa) 40%, transparent 80%, transparent 100%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0% 0%;
+}
+
+/* La hover efect radial */
+main a:hover {
+    background-size: 100% 100%;
+}
+
+/* Border pe link din main la click */
+main a:active {
+    border: 2px solid var(--culoare-inchisa);
+    border-radius: 4px;
+}
+
+/*Pentru pagina galerie*/
+
+.pagina-galerie #grid-pagina {
+    gap: 0;
+}
+
+
+
+@media screen and (max-width:800px) {
+    #grid-pagina {
+        display: block;
+    }
+
+    html {
+        font-size: 10px;
+    }
+
+    body {
+        --spatiere-pagina: 20px;
+        --spatiere-grid: 10px;
+    }
+
+    .tabel-container {
+        overflow-x: auto;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        --spatiere-pagina: 50px;
+        --spatiere-grid: 15px;
+    }
+
+    #grid-pagina {
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "sectiune1              sectiune1"
+            "anunturi               anunturi"
+            "oferte                 oferte"
+            "imagemap_              imagemap_"
+            "istoric                istoric"
+            "program-magazine       program-magazine"
+            "intrebari-frecvente    intrebari-frecvente    "
+            "sectiune_              sectiune_"
+            "galerie-statica        galerie-statica";
+
+    }
+
+}

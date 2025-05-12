@@ -1,0 +1,156 @@
+{
+	"cale_galerie": "resurse/imagini/galerie",
+	"imagini": [
+		{
+			"fisier": "albastre_manusi.png",
+			"titlu": "Mănuși Albastre Tricotate",
+			"alt": "Pereche de mănuși albastre tricotate",
+			"descriere": "Mănuși colorate realizate manual, ideale pentru iarnă.",
+			"luni": ["ianuarie","februarie","decembrie"]
+		},
+		{
+			"fisier": "andorid_toy.png",
+			"titlu": "Jucărie Croșetată Android",
+			"alt": "Figurină verde croșetată în forma de Android",
+			"descriere": "Jucărie handmade inspirată de mascota Android, perfectă pentru fanii tech.",
+			"luni": [
+				"martie","aprilie","mai",
+				"iunie","iulie","august",
+				"septembrie","octombrie","noiembrie"
+			]
+		},
+		{
+			"fisier": "ata1.png",
+			"titlu": "Fire Colorate de Bumbac",
+			"alt": "Mai multe fire colorate de bumbac înfășurate",
+			"descriere": "Set de fire colorate, ideale pentru proiecte de croșetat.",
+			"luni": [
+				"martie","aprilie","mai",
+				"iunie","iulie","august",
+				"septembrie","octombrie","noiembrie",
+				"ianuarie","februarie","decembrie"
+			]
+		},
+		{
+			"fisier": "ata2.png",
+			"titlu": "Cutie cu Ață și Accesorii",
+			"alt": "Cutie cu role de ață și accesorii de cusut",
+			"descriere": "Accesorii esențiale pentru croitorie și tricotaje.",
+			"luni": [
+				"martie","aprilie","mai",
+				"iunie","iulie","august",
+				"septembrie","octombrie","noiembrie",
+				"ianuarie","februarie","decembrie"
+			]
+		},
+		{
+			"fisier": "caciula_maro.png",
+			"titlu": "Căciulă de Lână Maro",
+			"alt": "Căciulă maro tricotată, groasă",
+			"descriere": "Căciulă călduroasă, ideală pentru sezonul rece.",
+			"luni": ["noiembrie","ianuarie","februarie","decembrie"]
+		},
+		{
+			"fisier": "floare_toy.png",
+			"titlu": "Ghiveci Croșetat cu Flori",
+			"alt": "Ghiveci decorativ croșetat cu flori mov și frunze verzi",
+			"descriere": "Decor textil vesel și colorat pentru primăvară.",
+			"luni": [
+				"martie","aprilie","mai",
+				"iunie","iulie","august",
+				"septembrie","octombrie","noiembrie"
+			]
+		},
+		{
+			"fisier": "fular_pisica.png",
+			"titlu": "Pisică cu Fular Roșu",
+			"alt": "Pisică purtând un fular tricotat roșu",
+			"descriere": "Imagine adorabilă cu o pisică stilizată pentru iarnă.",
+			"luni": ["ianuarie","februarie","decembrie"]
+		},
+		{
+			"fisier": "ghinde_toy.png",
+			"titlu": "Jucării Ghindă Croșetate",
+			"alt": "Două ghinde croșetate în stil jucărie",
+			"descriere": "Decor de toamnă realizat manual.",
+			"luni": [
+				"martie","aprilie","mai",
+				"iunie","iulie","august",
+				"septembrie","octombrie","noiembrie"
+			]
+		},
+		{
+			"fisier": "gri_manusi.png",
+			"titlu": "Mănuși Gri cu Cană",
+			"alt": "Mâini în mănuși gri ținând o cană cu ceai",
+			"descriere": "Atmosferă cozy de iarnă cu accesorii tricotate.",
+			"luni": ["ianuarie","februarie","decembrie"]
+		},
+		{
+			"fisier": "mov_manusa_ghem.png",
+			"titlu": "Mănuși Mov și Ghem de Ață",
+			"alt": "Mănuși tricotate mov și un ghem de ață mov",
+			"descriere": "Accesorii handmade pentru relaxare și confort.",
+			"luni": [
+				"noiembrie",
+				"ianuarie","februarie","decembrie",
+				"martie","aprilie"
+			]
+		},
+		{
+			"fisier": "pini.png",
+			"titlu": "Mașină de Tricotat Circulară",
+			"alt": "Vedere de sus a unei mașini circulare de tricotat",
+			"descriere": "Unelte pentru pasionații de croitorie.",
+			"luni": [
+				"martie","aprilie","mai",
+				"iunie","iulie","august",
+				"septembrie","octombrie","noiembrie",
+				"ianuarie","februarie","decembrie"
+			]
+		},
+		{
+			"fisier": "porc_toy.png",
+			"titlu": "Jucărie Porcușor Croșetată",
+			"alt": "Jucărie roz croșetată în formă de porcușor",
+			"descriere": "Figurină amuzantă și moale, perfectă pentru copii.",
+			"luni": [
+				"martie","aprilie","mai",
+				"iunie","iulie","august",
+				"septembrie","octombrie","noiembrie"
+			]
+		},
+		{
+			"fisier": "pui_toy.png",
+			"titlu": "Pui Croșetat Galben",
+			"alt": "Jucărie galbenă în formă de pui croșetat",
+			"descriere": "Simbol al primăverii, perfect de Paște.",
+			"luni": [
+				"martie","aprilie","mai",
+				"iunie","iulie","august",
+				"septembrie","octombrie","noiembrie"
+			]
+		},
+		{
+			"fisier": "pulover_caciula.png",
+			"titlu": "Ținută de Iarnă Tricotată",
+			"alt": "Persoană purtând pulover și căciulă în zăpadă",
+			"descriere": "Ținută groasă tricotată manual, ideală pentru drumeții iarna.",
+			"luni": ["ianuarie","februarie","decembrie"]
+		},
+		{
+			"fisier": "machine_knit_socks.png",
+			"titlu": "Șosete Tricotate Mecanic",
+			"alt": "Șosete tricotate la mașină",
+			"descriere": "Șosete realizate folosind o mașină de tricotat.",
+			"luni": [
+				"martie","aprilie","mai",
+				"iunie","iulie","august",
+				"septembrie","octombrie","noiembrie"
+			],
+			"atributie_autor": "“machine knit socks” de ingermaaike2",
+			"link_imagine_originala": "https://www.flickr.com/photos/17293359@N07/4953424533",
+			"link_licenta": "https://creativecommons.org/licenses/by/2.0/"
+		}
+	]
+}

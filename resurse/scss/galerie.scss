@@ -1,0 +1,65 @@
+@use "sass:math"; // pt. div si ceil
+
+$nr-img: 12;
+
+#gr {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 coloane la ecran mare
+    gap: 0.5em; // spatiu intre imagini
+    counter-reset: grec;
+
+    figure {
+        transition: all 0.5s ease;
+        text-align: center;
+
+        &:hover {
+            box-shadow: 0 0 10px gray;
+        }
+
+        figcaption::before {
+            counter-increment: grec;
+            content: counter(grec, lower-greek) ". ";
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    // plasez fiecare imagine
+    $linie: 1; // incepem cu linia 1
+    @for $i from 1 through $nr-img {
+        $col: if($i % 3==1, 1, if($i % 3==2, 3, 2));
+
+        >figure:nth-child(#{$i}) {
+            grid-area: #{$linie} / #{$col} / #{ $linie + 1 } / #{ $col + 1 };
+        }
+
+        // daca nu e pe prima coloana, crestem randul
+        // (ultima poza de pe rand ori e pe coloana 2 ori pe 3)
+        @if $i % 3 != 1 {
+            $linie: $linie + 1;
+        }
+    }
+}
+// ecran mediu (2 coloane)
+@media screen and (max-width: 1000px) {
+  #gr {
+    grid-template-columns: repeat(2, 1fr);
+
+    > figure {
+      grid-area: auto !important;// pentru specificitate mai mare
+    }
+  }
+}
+
+// ecran mic (1 coloana)
+@media screen and (max-width: 700px) {
+  #gr {
+    grid-template-columns: 1fr;
+
+    > figure {
+      grid-area: auto !important;
+    }
+  }
+}

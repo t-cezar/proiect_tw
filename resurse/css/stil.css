@@ -1,0 +1,86 @@
+#banner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    border: 2px dotted black;
+    padding: 10px;
+    text-align: center;
+    background: white;
+    z-index: 1000;
+  }
+  
+  #watermark {
+    display: none;
+    position: fixed;
+    width: 100px;
+    height: 2cm;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px double black;
+    opacity: 0.65;
+    z-index: 9999;
+  }
+  
+  @media print {
+    @page :left {
+      margin-left: 2.5cm;
+      margin-right: 0.5cm;
+    }
+  
+    @page :right {
+      margin-right: 2.5cm;
+      margin-left: 0.5cm;
+    }
+  
+    #banner {
+      display: block;
+    }
+  
+    #watermark {
+      display: block;
+    }
+  
+    img,
+    video,
+    iframe,
+    figure,
+    figcaption,
+    .media-description,
+    a[href="#"]{
+      display: none !important;
+    }    
+  
+    a {
+      text-decoration: none !important;
+      color: black !important;
+    }
+  
+    nav {
+      display: none !important;
+    }
+ 
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      text-decoration: underline;
+      margin-top: 40vh;
+      page-break-after: always;
+    }
+  
+    #grid-pagina, #grid-pagina > * {
+      display: block !important;
+      width: 100% !important;
+    }
+  
+    footer {
+      page-break-before: always;
+    }
+  
+    header:not(:has(h1)) {
+      display: none !important;
+    }
+  }

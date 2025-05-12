@@ -1,0 +1,42 @@
+<div id="gr">
+    <%
+        vect_luni = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+        d = new Date();
+        luna_curenta = vect_luni[d.getMonth()];
+
+        let nr = 0; // numar imaginile valide
+        for (let img of locals.imagini) {
+            if (img.luni && img.luni.includes(luna_curenta)) nr++;
+        }
+        if (nr > 12) nr = 12; // maxim 12
+        nr = nr - (nr%3);// ma asigur ca am un numar de linii pare,
+
+        let contor = 0; // contor imagini afisate
+    %>
+
+    <% for (let imag of locals.imagini) { %>
+        <% if (imag.luni && imag.luni.includes(luna_curenta) && contor < nr) { %>
+            <% contor++; %>
+        <figure title="<%= imag.titlu %>">
+            <picture>
+                                
+                <source srcset="<%= imag.fisier_mediu %>" media="(max-width: 1000px)">
+                <img src="<%= imag.fisier %>" alt="<%= imag.alt || imag.titlu %>">
+            </picture>
+            <figcaption>
+                <%= imag.descriere %>
+                <% if (imag.atributie_autor && imag.link_imagine_originala && imag.link_licenta) { %>
+                    <br>
+                <span class="atributie">
+                    <a href="<%= imag.link_imagine_originala %>" target="_blank" rel="noopener noreferrer">
+                    <%= imag.atributie_autor %>
+                    </a>, licențiată 
+                    <a href="<%= imag.link_licenta %>" target="_blank" rel="noopener noreferrer">CC-BY</a>
+                </span>
+                <% } %>
+            </figcaption>
+
+        </figure>
+        <% } %>
+    <% } %>
+</div>

@@ -1,0 +1,10 @@
+@media screen and (max-width: 1000px) {
+  ul.meniu li #acasa.text-icon {
+    display: none;
+  }
+  ul.meniu li #acasa-mediu {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=nav1000.css.map */
