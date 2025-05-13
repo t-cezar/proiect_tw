@@ -1,12 +1,12 @@
 /* Resetare */
 :root {
-    --font-size-base: 1rem;
-    --spatiere-mica: 0.5em;
-    --spatiere-medie: 1em;
-    --spatiere-mare: 2em;
-    --culoare-text: #333;
-    --culoare-fundal: #fff;
-    --border-general: 1px solid #ccc;
+    --font-size-base: 1rem !important;
+    --spatiere-mica: 0.5em !important;
+    --spatiere-medie: 1em !important;
+    --spatiere-mare: 2em !important;
+    --culoare-text: #333 !important;
+    --culoare-fundal: #fff !important;
+    --border-general: 1px solid #ccc !important;
 }
 
 *,
@@ -19,11 +19,11 @@
 
 html,
 body {
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    color: var(--culoare-text);
-    background-color: var(--culoare-fundal);
-    line-height: 1.5;
+    font-size: 16px !important;
+    font-family: Arial, sans-serif !important;
+    color: var(--culoare-text) !important;
+    background-color: var(--culoare-fundal) !important;
+    line-height: 1.5 !important;
 }
 
 h1,
@@ -32,12 +32,12 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: bold;
-    margin-bottom: var(--spatiere-medie);
+    font-weight: bold !important;
+    margin-bottom: var(--spatiere-medie) !important;
 }
 
 p {
-    margin-bottom: var(--spatiere-medie);
+    margin-bottom: var(--spatiere-medie)!important;
 }
 
 strong,
@@ -145,31 +145,31 @@ a:hover {
 }
 
 body {
-    --culoare-background: #FFD7B5;
-    --culoare-deschisa: #FFA646;
-    --culoare-default: rgb(210, 109, 0);
-    --culoare-inchisa: #8A6237;
-    --culoare-f_inchisa: #221C16;
-    --link-top: gray;
+    --culoare-background: #FFD7B5 !important;
+    --culoare-deschisa: #FFA646 !important;
+    --culoare-default: rgb(210, 109, 0) !important;
+    --culoare-inchisa: #8A6237 !important;
+    --culoare-f_inchisa: #221C16 !important;
+    --link-top: gray !important;
 
-    --spatiere-pagina: 100px;
-    --spatiere-grid: 20px;
-    --padding-text: 15px;
-    padding-left: var(--spatiere-pagina);
-    padding-right: var(--spatiere-pagina);
+    --spatiere-pagina: 100px !important;
+    --spatiere-grid: 20px !important;
+    --padding-text: 15px !important;
+    padding-left: var(--spatiere-pagina) !important;
+    padding-right: var(--spatiere-pagina) !important;
 }
 
 h1 {
-    font-family: "Pacifico", cursive;
-    font-weight: 400;
-    font-style: normal;
-    color: var(--culoare-default)
+    font-family: "Pacifico", cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    color: var(--culoare-default) !important;
 }
 
 #tab-program {
-    width: 100%;
-    border-collapse: collapse;
-    border: 5px inset var(--culoare-default);
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 5px inset var(--culoare-default) !important;
 }
 
 caption {
@@ -282,9 +282,9 @@ tbody tr:hover {
 }
 
 #taburi-iframe a:hover {
-    color: white;
-    text-shadow: 2px 2px 5px var(--culoare-f_inchisa);
-    border-left-color: var(--culoare-default);
+    color: white !important;
+    text-shadow: 2px 2px 5px var(--culoare-f_inchisa) !important;
+    border-left-color: var(--culoare-default) !important;
 }
 
 /* pdf */
@@ -315,16 +315,16 @@ footer,
 
 img,
 video {
-    max-width: 100%;
-    height: auto;
-    min-width: 200px;
-    max-width: 800px;
+    max-width: 100% !important;
+    height: auto !important;
+    min-width: 200px !important;
+    max-width: 800px !important;
 }
 
 iframe {
-    min-height: 315px;
-    height: 60vh;
-    max-height: 600px;
+    min-height: 315px !important;
+    height: 60vh !important;
+    max-height: 600px !important;
 }
 
 footer {
@@ -421,14 +421,14 @@ a[href^="http"]::before {
 
 /* Schimbare culoare simbol la hover pe link extern */
 a[href^="http"]:hover::before {
-    color: var(--culoare-default);
+    color: rgb(210, 109, 0);
 }
 
 /* Efect pata pe linkuri din main */
 main a {
     position: relative;
     text-decoration: none;
-    color: var(--culoare-inchisa);
+    color: var(--culoare-inchisa) ;
     transition: background-size 0.4s ease;
     background-image: radial-gradient(circle, var(--culoare-default) 0%, var(--culoare-deschisa) 40%, transparent 80%, transparent 100%);
     background-repeat: no-repeat;
@@ -454,6 +454,68 @@ main a:active {
 }
 
 
+/*etapa 5 HR -----------------------------------------------------------------------------------*/
+
+hr.efect-css-stilizare-hr {
+    height: 32px !important;
+    border: none !important;
+    background-image:
+        radial-gradient(circle,
+            var(--culoare-deschisa) 25%,
+            var(--culoare-inchisa) 40%,
+            rgba(70, 130, 180, 0) 50%),
+        linear-gradient(to bottom,
+            transparent 30%,
+            var(--culoare-deschisa) 50%,
+            var(--culoare-deschisa) 50%,
+            transparent 70%) !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-position: center center, center !important;
+    background-size: 32px 32px, 100% 100% !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+}
+
+
+/* etapa 5: Reflexie pentru titlul Anunturi ---------------------------------------------------*/
+.efect-css-reflexie-text {
+  position: relative;
+  display: inline-block;
+  font-size: 24px; /* aceeasi dimensiune pentru ambele parti de text */
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.titlu-principal,
+.titlu-reflectat {
+  color: var(--culoare-default);
+  transition: color 0.3s ease;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.titlu-principal {
+  transform: skewY(-6deg); /* stanga jos -> dreapta sus */
+}
+
+.titlu-reflectat {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: scaleX(-1) skewY(-6deg); /* oglindire + inclinare */
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.efect-css-reflexie-text:hover .titlu-principal,
+.efect-css-reflexie-text:hover .titlu-reflectat {
+  color: var(--culoare-inchisa);
+}
+
+
+
+
 
 @media screen and (max-width:800px) {
     #grid-pagina {
@@ -461,12 +523,12 @@ main a:active {
     }
 
     html {
-        font-size: 10px;
+        font-size: 10px !important;
     }
 
     body {
-        --spatiere-pagina: 20px;
-        --spatiere-grid: 10px;
+        --spatiere-pagina: 20px !important;
+        --spatiere-grid: 10px !important;
     }
 
     .tabel-container {
@@ -476,12 +538,12 @@ main a:active {
 
 @media screen and (max-width:1200px) {
     html {
-        font-size: 14px;
+        font-size: 14px !important;
     }
 
     body {
-        --spatiere-pagina: 50px;
-        --spatiere-grid: 15px;
+        --spatiere-pagina: 50px !important;
+        --spatiere-grid: 15px !important;
     }
 
     #grid-pagina {

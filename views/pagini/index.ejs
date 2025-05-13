@@ -11,7 +11,7 @@
     <%- include("../fragmente/head.ejs") %>
 
 
-    <button type="button" class="btn btn-primary btn-lg">Stil-1-mare</button>
+    
 </head>
 
 <body>
@@ -19,7 +19,9 @@
         <main>
             <div id="grid-pagina">
                 <section id="sectiune1">
-                    <h2>Bine ați venit!</h2><!--10. <b></b>  -->
+                    <h2>Bine ați venit!</h2>
+                    <button type="button" class="btn btn-primary btn-lg">Stil-1-mare</button>
+                    <!--10. <b></b>  -->
                     <p><b>Ip: </b><%- locals.ip %> </p>
                     <p><b>KnitKnotCrochet</b> este un magazin online și fizic dedicat artizanatului, unde pasiunea
                         pentru croșetat și tricotat se întâlnește cu inovația. Înființată în 2023, echipa
@@ -301,7 +303,7 @@
                             autentic. Așa cum am menționat anterior, sustenabilitatea și respectul pentru meșteșugurile
                             manuale stau la baza tuturor creațiilor noastre.
                         </p>
-
+                    
                         <section id="subsectiune4">
                             <h3>Figurine <b>handmade</b>: Artă în Miniatură</h3><!--10. <i></i> -->
                             <p>Folosim tehnici precum <i>croșetatul amigurumi</i> (de origine japoneză) pentru a crea
@@ -343,9 +345,17 @@
                             </p>
                         </section>
                     </section>
+                    
+                    <!-- etapa 5 HR -->
+                    <hr class="efect-css-stilizare-hr">
 
                     <section id="sectiune3">
-                        <h2>Ghid - Tehnici Esențiale în Tricotat și Croșetat</h2>
+                        <!-- etapa 5: Reflexie -->
+                        <div class="efect-css-reflexie-text">
+                            <h2 class="titlu-principal">Ghid </h2>
+                            <h2 class="titlu-reflectat">Ghid </h2>
+                        </div>
+                        <h3>Tehnici Esențiale în Tricotat și Croșetat</h3>
                         <p><!--10. <abbr></abbr> -->
                             Stăpânirea tehnicilor de bază și avansate este esențială pentru proiecte handmade reușite.
                             În
@@ -551,6 +561,7 @@
                         accesorii
                         decorative.
                     </p>
+                    
                     <p> La <b>KniKnotCrochet</b>, apreciem tradiția și arta croșetatului și tricotatului, oferindu-vă
                         produse de cea mai bună
                         calitate, realizate cu atenție și pasiune. Echipa noastră ia în serios fiecare detaliu, de la

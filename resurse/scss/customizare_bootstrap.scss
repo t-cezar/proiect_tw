@@ -1,0 +1,27 @@
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with
+(
+  $body-bg: #FFD7B5,
+  $body-color: #333,
+
+  $primary: #8A6237,
+  $secondary: #221C16,
+
+  $font-family-base: 'Arial, sans-serif',
+  $headings-font-family: 'Pacifico, cursive',
+  $headings-font-weight: 400,
+  $headings-color: rgb(210, 109, 0),
+
+  $h1-font-size: 2.5rem,
+  $h2-font-size: 2rem,
+  $h3-font-size: 1.75rem,
+
+  $border-radius: 1rem,
+  $spacer: 1.5rem,
+
+  $grid-breakpoints: (
+    sm: 600px,
+    md: 800px,
+    lg: 1000px,
+    xl: 1200px
+  )
+);
