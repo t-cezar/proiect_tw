@@ -6,98 +6,90 @@
 nav {
   background-color: var(--culoare-deschisa);
   --inaltime-meniu: 30px;
-  --latime-buton: 200px;
+  --latime-buton: 100%;
   height: var(--inaltime-meniu);
   position: sticky;
   top: 0;
+  z-index: 10; // pentru ca elemente din pagina sa nu mai fie suprapuse peste meniu
+  border-radius: 2px;
 }
 
-/* ul.meniu li div.imag-icon {
-  display: none;
-} */
+// ul.meniu li div.imag-icon {
+//   display: none;
+// }
 
 ul.meniu {
   display: flex;
   list-style-type: none;
   padding: 0;
-
-  ul {
-    display: none;
-    padding: 0;
-    animation: animatie_submeniu 0.75s forwards;
-    transform-origin: 50% 0;
-
-    li {
-      margin: 0;
-      padding: 0;
-
-      &:hover a {
-        text-decoration: underline;
-        color: var(--culoare-inchisa);
-        background-color: var(--culoare-secundara);
-      }
-    }
-  }
-
-  li {
-    width: var(--latime-buton);
-    height: var(--inaltime-meniu);
-    border: 1px solid var(--culoare-background);
-    box-sizing: border-box;
-    text-align: center;
-    font-weight: bold;
-    line-height: var(--inaltime-meniu);
-    transition: background-color 1s linear, color 1s linear;
-    position: relative;
-
-    &:hover {
-      background-color: var(--culoare-background);
-      --shadow-color: rgba(255, 255, 255, 0);
-      --end-shadow-color: white;
-      animation: shadowSlide 0.5s forwards;
-
-      ul {
-        display: block;
-        background-color: var(--culoare-deschisa);
-        position: absolute;
-        top: 100%;
-        left: -1px;
-        list-style-type: none;
-        width: var(--latime-buton);
-        box-sizing: border-box;
-        z-index: 100;
-        margin: 0;
-        padding: 0;
-      }
-
-      > a,
-      > div {
-        color: var(--culoare-inchisa);
-      }
-    }
-
-    &:not(:has(ul)):hover > .anim-text::after {
-      top: 0;
-    }
-
-    #acasa.anim-text {
-      display: block;
-    }
-
-    #acasa-mediu {
-      display: none;
-    }
-  }
-
-  a,
-  div {
-    color: black;
-    text-decoration: none;
-    transition: color 0.5s linear;
-    display: block;
-    height: 100%;
-    cursor: pointer;
-  }
+  margin-left: 0;
+}
+ul.meniu ul {
+  display: none;
+  padding: 0;
+  animation: animatie_submeniu 0.75s forwards;
+  transform-origin: 50% 0;
+}
+ul.meniu ul li {
+  margin: 0;
+  padding: 0;
+}
+ul.meniu ul li:hover a {
+  text-decoration: underline;
+  color: var(--culoare-inchisa);
+  background-color: var(--culoare-secundara);
+}
+ul.meniu li {
+  width: var(--latime-buton);
+  height: var(--inaltime-meniu);
+  border: 1px solid var(--culoare-background);
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: bold;
+  line-height: var(--inaltime-meniu);
+  transition: background-color 1s linear, color 1s linear;
+  position: relative;
+}
+ul.meniu li:hover {
+  background-color: var(--culoare-background);
+  --shadow-color: rgba(255, 255, 255, 0);
+  --end-shadow-color: white;
+  animation: shadowSlide 0.5s forwards;
+}
+ul.meniu li:hover ul {
+  display: block;
+  background-color: var(--culoare-deschisa);
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  list-style-type: none;
+  width: var(--latime-buton);
+  box-sizing: border-box;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+}
+ul.meniu li:hover > a,
+ul.meniu li:hover > div {
+  color: var(--culoare-inchisa);
+}
+ul.meniu li:not(:has(ul)):hover > .anim-text::after {
+  top: 0;
+}
+ul.meniu li #acasa.anim-text {
+  display: block;
+}
+ul.meniu li #acasa-mediu {
+  display: none;
+}
+ul.meniu a,
+ul.meniu div {
+  color: black;
+  text-decoration: none;
+  transition: color 0.5s linear;
+  display: block;
+  height: 100%;
+  cursor: pointer;
 }
 
 @keyframes animatie_submeniu {
@@ -124,18 +116,17 @@ ul.meniu {
   position: relative;
   overflow: hidden;
   display: block;
-
-  &::after {
-    content: attr(data-text);
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: var(--culoare-inchisa);
-    transition: top 0.5s ease;
-    text-align: center;
-    line-height: var(--inaltime-meniu);
-    font-weight: bold;
-  }
+}
+.anim-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--culoare-inchisa);
+  transition: top 0.5s ease;
+  text-align: center;
+  line-height: var(--inaltime-meniu);
+  font-weight: bold;
 }

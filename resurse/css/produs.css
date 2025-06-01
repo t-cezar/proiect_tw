@@ -1,0 +1,84 @@
+h2 {
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--culoare-default);
+    margin-bottom: 1rem;
+}
+
+/* Container articol produs */
+#art-produs {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 1000px;
+    background-color: var(--culoare-deschisa);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 1rem;
+    border: 2px solid var(--culoare-inchisa);
+}
+
+/* Detalii produs */
+#art-produs p {
+    margin: 0;
+    padding: 0.8rem 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Valoare din span (normala) */
+#art-produs p span {
+    font-weight: normal;
+}
+
+/* Alternanta culoare linii */
+#art-produs p:nth-of-type(even) {
+    background-color: var(--culoare-default);
+    color: var(--scris-alb);
+}
+#art-produs p:nth-of-type(odd) {
+    background-color: var(--culoare-deschisa);
+}
+
+/* Imagine produs - centrare si stil */
+.imag-produs {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.imag-produs img {
+    width: 60%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.imag-produs img:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 700px) {
+    #art-produs {
+        width: 95%;
+        padding: 0.8rem;
+    }
+
+    #art-produs p {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #art-produs p span {
+        margin-top: 0.3rem;
+    }
+
+    .imag-produs img {
+        width: 90%;
+    }
+}

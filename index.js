@@ -3,17 +3,29 @@ const path= require("path");
 const fs= require("fs");
 const sharp= require("sharp");
 const sass = require("sass");
+const pg = require("pg");
+
+const Client=pg.Client;
+
+client=new Client({
+    database:"proiect1",
+    user:"cezar",
+    password:"cezar",
+    host:"localhost",
+    port:5432
+})
+
+client.connect()
+client.query("select * from produse", function(err, rezultat ){
+    console.log(err)    
+    console.log("Rezultat query:", rezultat)
+})
+client.query("select * from unnest(enum_range(null::categorie_enum))", function(err, rezultat ){
+    console.log(err)    
+    console.log(rezultat)
+})
 
 app= express();
-
-// a= {
-//     pop:10,
-//     b:["orice",{c:100}, true, [0,12,{d:200}]]
-// }
-// console.log(a.b[3][2].d)
-// v=[10,27,23,44,15]
-// nrImpar=v.find(function(elem){return elem % 2 == 1})//pt %100 undefined -> 0
-// console.log(nrImpar)
 
 app.set("view engine", "ejs");
 
@@ -26,8 +38,17 @@ obGlobal={
     obImagini:null,
     folderScss: path.join(__dirname,"resurse/scss"),
     folderCss: path.join(__dirname,"resurse/css"),
-    folderBackup: path.join(__dirname,"backup")
+    folderBackup: path.join(__dirname,"backup"),
+    optiuniMeniu: null
 }
+
+client.query("select * from unnest(enum_range(null::tipuri_produse))", function(err, rezultat ){
+    console.log(err)
+    console.log("Tipuri produse:", rezultat)
+    obGlobal.optiuniMeniu=rezultat.rows //.rows -> vectorul cu inregistrarile
+})
+
+
 
 vect_foldere=["temp", "backup", "temp1"]
 for (let folder of vect_foldere ){
@@ -165,6 +186,12 @@ initImagini();
 
 
 
+app.use("/*", function(req, res, next){
+    res.locals.optiuniMeniu=obGlobal.optiuniMeniu
+
+    next(); //ca sa nu ramana blocat; trece mai departe
+})
+
 app.use("/resurse", express.static(path.join(__dirname,'resurse')))
 app.use("/node_modules", express.static(path.join(__dirname,"node_modules")))
 
@@ -206,7 +233,7 @@ app.get("/abc",function(req, res, next){
 app.get("/abc",function(req, res, next){
     res.write((new Date())+"");
     res.end();
-    next()
+    next();
 })
 
 
@@ -214,6 +241,51 @@ app.get("/abc",function(req, res, next){
 app.get("/cerere",function(req, res, next){
     res.sendfile("package.json")
 })
+
+
+app.get("/produse", function(req, res){
+    console.log(req.query)
+    var conditieQuery=""; // TO DO where din parametri
+    if(req.query.tip){
+        conditieQuery=` where tip_produs='${req.query.tip}'`
+    }
+
+    queryOptiuni="select * from unnest(enum_range(null::categorie_enum))"
+    client.query(queryOptiuni, function(err, rezOptiuni){
+        console.log(rezOptiuni)
+
+
+        queryProduse="select * from produse"+conditieQuery
+        client.query(queryProduse, function(err, rez){
+            if (err){
+                console.log(err);
+                afisareEroare(res, 2);
+            }
+            else{
+                res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni.rows})
+            }
+        })
+    });
+})
+
+app.get("/produs/:id", function(req, res){
+    console.log(req.params)
+    client.query(`select * from produse where id=${req.params.id}`, function(err, rez){
+        if (err){
+            console.log(err);
+            afisareEroare(res, 2);
+        }
+        else{
+            if (rez.rowCount==0){
+                afisareEroare(res, 404);
+            }
+            else{
+                res.render("pagini/produs", {prod: rez.rows[0]})
+            }
+        }
+    })
+})
+
 
 app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
     afisareEroare(res,403);

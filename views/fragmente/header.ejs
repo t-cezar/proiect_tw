@@ -1,57 +1,76 @@
+<script src="/resurse/js/tema.js"></script>
 <header>
     <h1 id="#"><b>KnitKnotCrochet</b></h1>
-    <nav>
-        <!--hamburger-icon-->
-        <label id="hamburger" for="ch-menu">
-            <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu">
+    <!-- <button id="schimba_tema">Tema</button> -->
+    <!-- Etapa 6; Subpunct e: switch Bootstrap pentru tema -->
+    <div class="form-check form-switch col-md-3 mt-3" >
+        <input class="form-check-input" type="checkbox" id="schimba_tema">
+        <label class="form-check-label" for="schimba_tema">
+            <i class="bi bi-moon-stars-fill"></i> / <i class="bi bi-sun-fill"></i> Temă
         </label>
-
-        <!--meniu-->
-        <input id="ch-menu" type="checkbox">
-        <ul class="meniu">
-            <li>
-                <div class="anim-text text-icon" data-text="Acasă" id="acasa" onclick="location.href='/'">Acasa</div>
-                <div class="imag-icon" id="acasa-mediu" onclick="location.href='/'"><span class="fas fa-regular fa-house"></span></div>
-                <ul>
-                    <li><a href="#sectiune1">Bine ati venit</a></li>
-                    <li><a href="#anunturi">Anunțuri</a></li>
-                    <li><a href="#oferte">Oferte</a></li>
-                    <li><a href="#program-magazine">Orar</a></li>
-                    <li><a href="#sectiune2">Tehnici</a></li>
-                    <li><a href="#sectiune3">Ghid</a></li>
-                    <li><a href="#intrebari-frecvente">Întrebări</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <div class="anim-text text-icon" data-text="Despre" id="acasa" onclick="location.href='/despre'">Despre</div>
-                <div class="imag-icon" id="acasa-mediu" onclick="location.href='/despre'"><span class="fa-solid fa-address-card"></span></div>
-                <ul>
-                    <li><a href="/despre#prezentare">Prezentare</a></li>
-                    <li><a href="/despre#istoric">Istoric</a></li>
-                    <li><a href="/despre#motivatie">Motivatie</a></li>
-                    <li><a href="/galerie">Galerie</a></li>
-                </ul>
-                
-            </li>
-
-            <li>
-                <a class="anim-text" data-text="Înregistrare" href="#">Înregistrare</a>
-            </li>
-
-            <li>
-                <div class="anim-text" data-text="Produse">Produse</div>
-                <ul>
-                    <li><a href="http://www.google.com">Toate</a></li>
-                    <li><a href="#">Ace</a></li>
-                    <li><a href="#">Ghemuri</a></li>
-                    <li><a href="#">Îmbrăcăminte</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <a class="anim-text" data-text="Contact" href="#">Contact</a>
-            </li>
-        </ul>
-    </nav>
+    </div>
 </header>
+<nav>
+    <!--hamburger-icon-->
+    <label id="hamburger" for="ch-menu">
+        <!-- <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu"> -->
+        <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </label>
+
+    <!--meniu-->
+    <input id="ch-menu" type="checkbox">
+    <ul class="meniu">
+        <li>
+            <div class="anim-text text-icon" data-text="Acasă" id="acasa" onclick="location.href='/'">Acasa</div>
+            <div class="imag-icon" id="acasa-mediu" onclick="location.href='/'"><span
+                    class="fas fa-regular fa-house"></span></div>
+            <ul>
+                <li><a href="/index#sectiune1">Bine ati venit</a></li>
+                <li><a href="/index#anunturi">Anunțuri</a></li>
+                <li><a href="/index#oferte">Oferte</a></li>
+                <li><a href="/index#program-magazine">Orar</a></li>
+                <li><a href="/index#sectiune2">Tehnici</a></li>
+                <li><a href="/index#sectiune3">Ghid</a></li>
+                <li><a href="/index#intrebari-frecvente">Întrebări</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="anim-text text-icon" data-text="Despre" id="acasa" onclick="location.href='/despre'">Despre
+            </div>
+            <div class="imag-icon" id="acasa-mediu" onclick="location.href='/despre'"><span
+                    class="fa-solid fa-address-card"></span></div>
+            <ul>
+                <li><a href="/despre#prezentare">Prezentare</a></li>
+                <li><a href="/despre#istoric">Istoric</a></li>
+                <li><a href="/despre#motivatie">Motivatie</a></li>
+                <li><a href="/galerie">Galerie</a></li>
+            </ul>
+
+        </li>
+
+        <li>
+            <a class="anim-text" data-text="Înregistrare" href="#">Înregistrare</a>
+        </li>
+
+        <li>
+            <!-- Etapa 6; meniu -->
+            <div class="anim-text" data-text="Produse">Produse</div>
+            <ul>
+                <li><a href="/produse">Toate</a></li>
+                <% for (let opt of locals.optiuniMeniu){ %>
+                    <li><a href="/produse?tip=<%= opt.unnest %>"><%= opt.unnest %></a></li>
+                <% } %>
+            </ul>
+        </li>
+
+        <li>
+            <a class="anim-text" data-text="Contact" href="#">Contact</a>
+        </li>
+        
+    </ul>
+</nav>

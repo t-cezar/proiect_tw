@@ -6,35 +6,39 @@
 nav {
   background-color: var(--culoare-deschisa);
   --inaltime-meniu: 30px;
-  --latime-buton: 200px;
+  --latime-buton: 100%;
   height: var(--inaltime-meniu);
   position: sticky;
   top: 0;
+  z-index: 10;
+  border-radius: 2px;
 }
 
-/* ul.meniu li div.imag-icon {
-  display: none;
-} */
 ul.meniu {
   display: flex;
   list-style-type: none;
   padding: 0;
+  margin-left: 0;
 }
+
 ul.meniu ul {
   display: none;
   padding: 0;
   animation: animatie_submeniu 0.75s forwards;
   transform-origin: 50% 0;
 }
+
 ul.meniu ul li {
   margin: 0;
   padding: 0;
 }
+
 ul.meniu ul li:hover a {
   text-decoration: underline;
   color: var(--culoare-inchisa);
   background-color: var(--culoare-secundara);
 }
+
 ul.meniu li {
   width: var(--latime-buton);
   height: var(--inaltime-meniu);
@@ -46,12 +50,14 @@ ul.meniu li {
   transition: background-color 1s linear, color 1s linear;
   position: relative;
 }
+
 ul.meniu li:hover {
   background-color: var(--culoare-background);
   --shadow-color: rgba(255, 255, 255, 0);
   --end-shadow-color: white;
   animation: shadowSlide 0.5s forwards;
 }
+
 ul.meniu li:hover ul {
   display: block;
   background-color: var(--culoare-deschisa);
@@ -65,19 +71,24 @@ ul.meniu li:hover ul {
   margin: 0;
   padding: 0;
 }
+
 ul.meniu li:hover > a,
 ul.meniu li:hover > div {
   color: var(--culoare-inchisa);
 }
+
 ul.meniu li:not(:has(ul)):hover > .anim-text::after {
   top: 0;
 }
+
 ul.meniu li #acasa.anim-text {
   display: block;
 }
+
 ul.meniu li #acasa-mediu {
   display: none;
 }
+
 ul.meniu a,
 ul.meniu div {
   color: black;
@@ -111,6 +122,7 @@ ul.meniu div {
   overflow: hidden;
   display: block;
 }
+
 .anim-text::after {
   content: attr(data-text);
   position: absolute;

@@ -5,8 +5,16 @@
     --spatiere-medie: 1em !important;
     --spatiere-mare: 2em !important;
     --culoare-text: #333 !important;
-    --culoare-fundal: #fff !important;
+    --culoare-fundal: #f9be8e !important;
     --border-general: 1px solid #ccc !important;
+
+
+    --culoare-tabel-th: #f4f4f4 !important;
+    --culoare-subtitlu-bg: #ffffff !important;
+    --culoare-link-vizitat: #ffffff !important;
+    --scris-alb: #ffffff !important; /*folosit in produs.css*/
+    --culoare-rezultat-math: purple !important;
+    --culoare-hover-link-extern: rgb(210, 109, 0) !important;
 }
 
 *,
@@ -73,7 +81,7 @@ td {
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: var(--culoare-tabel-th);
 }
 
 img,
@@ -143,7 +151,9 @@ a:hover {
 #istoric {
     grid-area: istoric;
 }
-
+html {
+    background-color: var(--culoare-fundal) !important;
+}
 body {
     --culoare-background: #FFD7B5 !important;
     --culoare-deschisa: #FFA646 !important;
@@ -152,7 +162,7 @@ body {
     --culoare-f_inchisa: #221C16 !important;
     --link-top: gray !important;
 
-    --spatiere-pagina: 100px !important;
+    --spatiere-pagina: 80px !important;
     --spatiere-grid: 20px !important;
     --padding-text: 15px !important;
     padding-left: var(--spatiere-pagina) !important;
@@ -199,7 +209,7 @@ tbody tr:nth-child(even) td {
 }
 
 tbody tr:hover {
-    outline: 5px solid rgba(138, 98, 55, 0.7);
+    outline: 5px solid var(--culoare-inchisa);
     transition: outline 0.5s ease-in-out;
 }
 
@@ -375,7 +385,7 @@ footer iframe {
 
 .styled-math mn.result {
     font-weight: bold;
-    color: purple;
+    color: var(--culoare-rezultat-math);
 }
 
 .styled-math mtext.unit {
@@ -396,7 +406,7 @@ footer iframe {
 }
 
 video::cue {
-  background-color: white;
+  background-color: var(--culoare-subtitlu-bg);
   color: var(--culoare-f_inchisa);
   text-align: center;
   position: relative;
@@ -407,7 +417,7 @@ video::cue {
 /* etapa 4 LINK */
 /* Linkuri vizitate */
 a:visited {
-    color: white;
+    color: var(--culoare-link-vizitat);
 }
 
 /* Linkuri externe — ⮳ */
@@ -421,7 +431,7 @@ a[href^="http"]::before {
 
 /* Schimbare culoare simbol la hover pe link extern */
 a[href^="http"]:hover::before {
-    color: rgb(210, 109, 0);
+    color: var(--culoare-default);
 }
 
 /* Efect pata pe linkuri din main */
@@ -478,6 +488,7 @@ hr.efect-css-stilizare-hr {
 
 
 /* etapa 5: Reflexie -----------------------------------------------------------------------*/
+
 .efect-css-reflexie-text {
   position: relative;
   display: inline-block;
@@ -493,6 +504,8 @@ hr.efect-css-stilizare-hr {
   transition: color 0.3s ease;
   display: inline-block;
   white-space: nowrap;
+  /*previne ruperea pe mai multe linii a textului, indiferent de 
+  spatiu sau dimensiune*/
 }
 
 .titlu-principal {
@@ -522,9 +535,9 @@ hr.efect-css-stilizare-hr {
     background-position: center;
     width: 500px;
     height: 500px;
-    filter: brightness(90%) grayscale(0);
+    filter: brightness(90%) grayscale(0); /*efect luminozitate si tonuri gri*/
     transition: all 1.5s ease;
-    overflow: hidden;
+    overflow: hidden; 
     box-shadow: 0 0 20px rgb(92, 64, 51);
 }
 
@@ -561,12 +574,47 @@ hr.efect-css-stilizare-hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: 80vh; /*80% din inaltimea totala a ecranului disponibi*/
     width: 100%;
     margin: 20px 0;
 }
 
 
+/* ---------------------------Etapa 6; Tema dark aplicata cu body.dark -----------------------------*/
+body.dark {
+    --culoare-background: #2b2b2b !important;
+    --culoare-deschisa: #444 !important;
+    --culoare-default: #f5ba50 !important;
+    --culoare-inchisa: #e0aaff !important;
+    --culoare-f_inchisa: #cccccc !important;
+    --culoare-text: #f0f0f0 !important;
+    --culoare-subtitlu-bg: #3a3a3a !important;
+    --culoare-link-vizitat: #f0c987 !important;
+    --link-top: #999 !important;
+    background-color: var(--culoare-background) !important;
+    color: var(--culoare-text) !important;
+}
+
+body.dark header,
+body.dark footer,
+body.dark #grid-pagina > section {
+    background-color: #1f1f1f !important;
+    border-color: var(--culoare-default) !important;
+    box-shadow: 3px 3px 10px #000 !important;
+}
+
+body.dark table th,
+body.dark thead th {
+    background-color: #3d3d3d !important;
+}
+
+body.dark a:hover::before {
+    color: var(--culoare-deschisa) !important;
+}
+
+body.dark main a {
+    background-image: radial-gradient(circle, var(--culoare-default) 0%, var(--culoare-deschisa) 40%, transparent 80%, transparent 100%);
+}
 
 
 @media screen and (max-width:800px) {

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <title>KnitKnotCrochet - produse</title>
+    <%- include("../fragmente/head") %>
+        <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+        <script type="text/javascript" src="/resurse/js/produse.js"></script>
+        <script type="text/javascript" src="/resurse/js/produse-cos.js"></script>
+</head>
+
+<body>
+    <%- include("../fragmente/header") %>
+        <main>
+
+            <section id="filtrare-produse" class="container">
+                <h2>Filtrare produse</h2>
+                <form class="row g-3">
+
+                    <!-- Subpunct a: input text nume -->
+                    <div class="col-md-6">
+                        <label for="inp-nume" class="form-label">Nume:</label>
+                        <input type="text" class="form-control" id="inp-nume">
+                    </div>
+
+                    <!-- Subpunct c: radio toggle buttons -->
+                    <div class="col-md-6">
+                        <label class="form-label d-block">Grosime fir:</label>
+                        <div class="btn-group" role="group">
+                            <input type="radio" class="btn-check" name="gr_rad" id="i_rad1" value="1:3"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="i_rad1">1–3 mm</label>
+
+                            <input type="radio" class="btn-check" name="gr_rad" id="i_rad2" value="3:5"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="i_rad2">3–5 mm</label>
+
+                            <input type="radio" class="btn-check" name="gr_rad" id="i_rad3" value="5:10"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="i_rad3">5–10 mm</label>
+
+                            <input type="radio" class="btn-check" name="gr_rad" id="i_rad4" value="toate" checked
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="i_rad4">Toate</label>
+                        </div>
+                    </div>
+
+                    <!-- Subpunct f: input de tip range -->
+                    <div class="col-md-12 mb-3">
+                        <label for="inp-pret" class="form-label d-block">Preț minim:</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-muted small">0</span>
+                            <input type="range" class="form-range flex-grow-1" id="inp-pret" min="0" max="100">
+                            <span class="text-muted small">100</span>
+                            <span id="infoRange" class="text-muted small">(0)</span>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Categorie -->
+                    <div class="col-md-4">
+                        <label for="inp-categorie" class="form-label">Categorie:</label>
+                        <select id="inp-categorie" class="form-select">
+                            <option value="toate" selected>Toate</option>
+                            <% for (let opt of locals.optiuni) { %>
+                                <option value="<%= opt.unnest %>">
+                                    <%= opt.unnest %>
+                                </option>
+                                <% } %>
+                        </select>
+                    </div>
+
+                    <!-- Material -->
+                    <div class="col-md-4">
+                        <label for="inp-materiale" class="form-label">Material:</label>
+                        <select id="inp-materiale" multiple class="form-select">
+                            <option value="lana">Lână</option>
+                            <option value="bumbac">Bumbac</option>
+                            <option value="metal">Metal</option>
+                            <option value="bamboo">Bamboo</option>
+                            <option value="plastic">Plastic</option>
+                        </select>
+                    </div>
+
+                    <!-- Subpunct c: tehnici ca toggle buttons (col-md-4 pentru aliniere corecta) -->
+                    <div class="col-md-4 mb-3 mt-3">
+                        <label class="form-label d-block">Tehnică:</label>
+                        <div class="btn-group" role="group">
+                            <input type="checkbox" class="btn-check" id="tehnic1" name="tehnici" value="tricotat">
+                            <label class="btn btn-outline-secondary" for="tehnic1">Tricotat</label>
+
+                            <input type="checkbox" class="btn-check" id="tehnic2" name="tehnici" value="crosetat">
+                            <label class="btn btn-outline-secondary" for="tehnic2">Croșetat</label>
+                        </div>
+                    </div>
+
+                    <!-- Subpunct b: textarea cu floating label; Descriere -->
+                    <div class="form-floating col-md-6 mb-3">
+                        <textarea class="form-control" placeholder="Ex: fular, moale, lana" id="inp-descriere"
+                            rows="2"></textarea>
+                        <label for="inp-descriere">Descriere conține:</label>
+                    </div>
+
+                    <!-- Tara de origine -->
+                    <div class="col-md-6 mb-3 mt-3">
+                        <label for="inp-tara" class="form-label">Țara de origine:</label>
+                        <input list="lista-tari" class="form-control" id="inp-tara">
+                        <datalist id="lista-tari">
+                            <option value="Romania">
+                            <option value="Italia">
+                            <option value="Franta">
+                            <option value="Germania">
+                            <option value="Austria">
+                            <option value="Spania">
+                            <option value="Ungaria">
+                            <option value="Japonia">
+                            <option value="China">
+                            <option value="Coreea">
+                        </datalist>
+                    </div>
+
+                    <!-- Subpunct a: butoane tematice Bootstrap cu iconuri relevante și text ascuns pe ecrane mici -->
+                    <div class="col-md-12 d-flex flex-wrap gap-2">
+
+                        <!-- Buton filtrare -->
+                        <button type="button" class="btn btn-primary d-flex align-items-center" id="filtrare">
+                            <i class="bi bi-funnel-fill"></i>
+                            <span class="d-none d-sm-inline ms-1">Filtrează</span>
+                        </button>
+
+                        <!-- Buton resetare -->
+                        <button type="button" class="btn btn-secondary d-flex align-items-center" id="resetare">
+                            <i class="bi bi-arrow-clockwise"></i>
+                            <span class="d-none d-sm-inline ms-1">Resetează</span>
+                        </button>
+
+                        <!-- Buton sortare crescatoare -->
+                        <button type="button" class="btn btn-primary d-flex align-items-center" id="sortCrescNume">
+                            <i class="bi bi-sort-alpha-down"></i>
+                            <span class="d-none d-sm-inline ms-1">Sortează crescător (nume + tehnică)</span>
+                        </button>
+
+                        <!-- Buton sortare descrescatoare -->
+                        <button type="button" class="btn btn-primary d-flex align-items-center" id="sortDescrescNume">
+                            <i class="bi bi-sort-alpha-up-alt"></i>
+                            <span class="d-none d-sm-inline ms-1">Sortează descrescător (nume + tehnică)</span>
+                        </button>
+                    </div>
+
+                    <div class="col-12">
+                        <p id="p-suma">Apăsați Alt+"c" pentru suma prețurilor produselor afișate.</p>
+                    </div>
+                </form>
+            </section>
+
+            <section id="produse">
+                <h2>Produse</h2>
+                <div class="grid-produse">
+                    <% for(let prod of locals.produse) { %>
+                        <article id="ent<%- prod.id %>" class="produs <%- prod.categorie.replace(/\s+/g, '') %>">
+                            <h3 class="nume">
+                                <a href="/produs/<%- prod.id %>">
+                                    <span class="val-nume"><%- prod.nume %></span>
+                                </a>
+                            </h3>
+
+                            <div class="info-prod-flex info-prod">
+                                <div class="pseudo-tabel">
+                                    <div class="linie heading">
+                                        <span>Preț</span>
+                                        <span>Grosime (mm)</span>
+                                        <span class="col-tehnici">Tehnici</span>
+                                        <span class="col-data">Data adăugare</span>
+                                        <span>Țara origine</span>
+                                    </div>
+                                    <div class="linie valori">
+                                        <span class="val-pret"><%- prod.pret %> lei</span>
+                                        <span class="val-grosime"><%- prod.grosime_fir %></span>
+                                        <span class="val-tehnici col-tehnici"><%- prod.tehnici %></span>
+                                        <span class="val-data col-data">
+                                            <time datetime="<%- prod.data_adaugare %>">
+                                                <% let data=new Date(prod.data_adaugare); let
+                                                    zile=['Duminică','Luni','Marți','Miercuri','Joi','Vineri','Sâmbătă'];
+                                                    let
+                                                    luni=['Ianuarie','Februarie','Martie','Aprilie','Mai','Iunie','Iulie','August','Septembrie','Octombrie','Noiembrie','Decembrie'];
+                                                    %>
+                                                    <%= data.getDate() %>(<%= zile[data.getDay()] %>)/<%=
+                                                                luni[data.getMonth()] %>/<%= data.getFullYear() %>
+                                            </time>
+                                        </span>
+                                        <span class="val-tara"><%- prod.tara_origine %></span>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="img-col">
+                                    <a href="/produs/<%- prod.id %>">
+                                        <img src="/resurse/imagini/produse/<%- prod.imagine %>"
+                                            alt="Imagine <%- prod.nume %>" />
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere %></span></p>
+                            <p class="material">Material: <span class="val-material"><%- prod.material %></span></p>
+                            <p class="categorie">Categorie: <span class="val-categorie"><%- prod.categorie %></span></p>
+
+                            <label class="selecteaza-cos">
+                                Selectează:<br />
+                                <input type="checkbox" class="select-cos" value="<%- prod.id %>" autocomplete="off">
+                            </label>
+                        </article>
+                        <% } %>
+                </div>
+            </section>
+        </main>
+        <%- include("../fragmente/footer") %>
+</body>
+
+</html>
